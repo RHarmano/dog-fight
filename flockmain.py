@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 class boundsprop:
     def __init__(self, dims):
@@ -47,3 +48,15 @@ def gdogfight(pos1, pos2, dir1, dir2, fighterturnspeed, targetflyspeed):
     idealray = npos2 - pos1
     dir1 = dir1 + (idealray-dir1)*fighterturnspeed
     return dir1   
+
+box = boundsprop([15,15,15])
+f1 = fighterproperties([0,0], [1,1], [1,1,1])
+f2 = fighterproperties([1,1], [3,2], [1,1,1])
+
+fig = plt.figure(figsize=(15,15))
+mapx = [f1.pos[0], f2.pos[0]]
+xdir = [f1.direct[0], f2.direct[0]]
+mapy = [f1.pos[1], f2.pos[1]]
+ydir = [f1.direct[1], f2.direct[1]]
+plt.quiver(mapx, mapy, xdir, ydir)
+plt.show()
