@@ -31,6 +31,10 @@ def flightstep(pos, direction, flyspeed):
     nextpos = pos + bhat*flyspeed
     return nextpos
 
+def executemove(pos, direction, flyspeed):
+    futurepos = flightstep(pos, direction, flyspeed)
+    return futurepos
+
 #poor dogfighter; fighter doesn't see where the other object is going
 def pdogfight(pos1, pos2, direction, turnspeed):
     idealray = pos2 - pos1
