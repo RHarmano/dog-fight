@@ -31,14 +31,14 @@ if __name__ == "__main__":
         """ Updates fighter positions on the figure """
         f1.pos, f1.direct = f1.shake_run(boundx, boundy, f1.pos, f1.flyspeed, f1.turnspeed)
         if f2.goodfighter == 1:
-            f2.pos, f2.direct = f2.good_dog_fighter(f2.pos, f1.pos, f2.direct, f1.direct, f2.turnspeed, f2.flyspeed, f1.flyspeed)
+            f2.pos, f2.direct = f2.good_dog_fighter(boundx, boundy, f2.pos, f1.pos, f2.direct, f1.direct, f2.turnspeed, f2.flyspeed, f1.flyspeed)
         elif f2.goodfighter == 0:
-            f2.pos, f2.direct = f2.poor_dog_fighter(f2.pos, f1.pos, f2.direct, f2.turnspeed, f2.flyspeed)
+            f2.pos, f2.direct = f2.poor_dog_fighter(boundx, boundy, f2.pos, f1.pos, f2.direct, f2.turnspeed, f2.flyspeed)
         ax.clear()
         ax.set_xlim([0,15])
         ax.set_ylim([0,15])
         Q = ax.quiver([f1.pos[0], f2.pos[0]], [f1.pos[1], f2.pos[1]], [f1.direct[0], f2.direct[0]], [f1.direct[1], f2.direct[1]])
         return Q,
 
-    anim = animation.FuncAnimation(fig, update_fig, fargs=(Q, f1, f2), interval=100, blit=False)
+    anim = animation.FuncAnimation(fig, update_fig, fargs=(Q, f1, f2), interval=10, blit=False)
     plt.show()
