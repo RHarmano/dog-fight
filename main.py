@@ -40,5 +40,5 @@ if __name__ == "__main__":
         Q = ax.quiver([f1.pos[0], f2.pos[0]], [f1.pos[1], f2.pos[1]], [f1.direct[0], f2.direct[0]], [f1.direct[1], f2.direct[1]])
         return Q,
 
-    anim = animation.FuncAnimation(fig, update_fig, fargs=(Q, f1, f2), interval=10, blit=False)
+    anim = animation.FuncAnimation(fig, update_fig, fargs=(Q, f1, f2), interval=1000, blit=False)
     plt.show()
